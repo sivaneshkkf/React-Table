@@ -38,7 +38,7 @@ const Table = ({ productData, tableHead }) => {
             <tr key={rowIndex} className="odd:bg-white even:bg-gray-50 hover:bg-lime-200 hover:font-semibold">
               {Object.values(row).map((value, colIndex) => (
                 <td key={colIndex} className="px-4 py-2 border-b border-gray-300">
-                  {value}
+                  {value? value: "N/A"}
                 </td>
               ))}
               <td className="px-4 py-2 text-center border-b border-gray-300">

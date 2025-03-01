@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from './Components/Table';
+import Loading from './Components/Loading';
 
-const tableHead = ["ID", "TITLE", "BRAND", "CATEGORY", "AVAILABLE STATUS", "PRICE", "DISCOUNT", "QUANTITY","AVAILABILITY TO SALE"];
+const tableHead = ["id", "title", "brand", "category", "available", "price", "discount", "quantity","AVAILABILITY TO SALE"];
 
 const App = () => {
   const [productData, setProductData] = useState([]);
+  const [loading,setLoading]= useState(true)
 
   useEffect(() => {
     fetchData();
@@ -29,6 +31,7 @@ const App = () => {
       }));
 
       setProductData(formattedData);
+      setLoading(false)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -39,7 +42,11 @@ const App = () => {
 
   return (
     <div className="p-4">
+      {loading ? 
+      <Loading/>:
       <Table productData={productData} tableHead={tableHead} />
+      }
+      
     </div>
   );
 };
