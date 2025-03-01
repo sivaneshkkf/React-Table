@@ -27,7 +27,7 @@ const Table = ({ productData, tableHead }) => {
         <thead className="bg-gray-200">
           <tr>
             {tableHead.map((col, index) => (
-              <th key={index} className="px-4 py-2 text-left border-b border-gray-300">
+              <th key={index} className="px-4 py-2 text-left border-b border-gray-300 uppercase">
                 {col}
               </th>
             ))}
